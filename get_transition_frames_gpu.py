@@ -1,4 +1,5 @@
 import sys
+import shutil
 
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -81,6 +82,8 @@ for indx, batch in enumerate(test_loader):
                     pred_file.write(str(frame_index) + '\n')
 pred_file.close()
 
+os.remove('frames.txt')
+shutil.rmtree('video_frames')
 print('Predictions complete !!!')
 print('Frames that are part of shot boundaries are listed in file predictions.txt')
 
