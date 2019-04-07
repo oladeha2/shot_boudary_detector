@@ -8,11 +8,10 @@ To use the shot boundary detector the following python libraries are reuqired
 4. cuda 
 
 For easy use of the shot boundary detector place the video file in the same directory is possible. 
-Clone repo and to detect the frames of the input video that are potentially part of a shot boundary run the following command while inside the repo
+Clone repo and to detect the frames of the input video that are potentially part of a shot boundary run the following command while inside the repo:
 
-1. For gpu users  --> python get_transition_frames_gpu.py <video_file_path> <name of text file to save predictions>
-
-2. For cpu users --> python get_transition_frames_cpu.py <video_file_path> <name of text file to save predictions>
+For gpu users  --> python get_transition_frames_gpu.py <video_file_path> <name of text file to save predictions>
+For cpu users --> python get_transition_frames_cpu.py <video_file_path> <name of text file to save predictions>
 
 The file name to svae files to must have the '.txt' extension added to it. The resulting text file located in 'predictions/<your_text_file_name>' will have the frame numbers in the input video that are part of one of the following transitions:
 1. Hard cut
