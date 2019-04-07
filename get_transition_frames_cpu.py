@@ -82,7 +82,7 @@ for indx, batch in enumerate(test_loader):
 pred_file.close()
 
 print('Predictions complete !!!')
-print('Frames that are part of shot boundaries are listed in file the directory path predictionns/' + pred_text_file_name)
+print('Frames that are part of shot boundaries are listed in file the directory path predictions/' + pred_text_file_name)
 
 
 
