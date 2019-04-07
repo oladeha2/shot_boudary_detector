@@ -22,12 +22,15 @@ from PIL import Image
 # place the video to be detected into the directory 
 
 video = sys.argv[1]
-# predictions_text_file = sys.argv[2]
+pred_text_file_name = sys.argv[2]
+
 text_file = 'frames.txt'
 
 print('decomposing video to frames this may take a while  for large videos :) .....')
 frames_path = 'video_frames/'
 os.makedirs('video_frames/', exist_ok=True)
+os.makedirs('predictions/', exist_ok=True)
+
 
 vid = VideoFileClip(video)
 vid = six_four_crop_video(vid)
@@ -47,9 +50,10 @@ print('frame decomposition complete !!! ')
 
 #load model
 model = TransitionCNN()
-fifty_model.load_state_dict(torch.load('./models/shot_boundary_detector_even_distrib.pt', map_location='cpu'))
+model.load_state_dict(torch.load('./models/shot_boundary_detector_even_distrib.pt', map_location='cpu'))
 
-prediction_text_file = 'predictions.txt'
+
+prediction_text_file = 'predictions/' + pred_text_file_name 
 
 pred_file = open(prediction_text_file, 'w+')
 
