@@ -26,3 +26,5 @@ The model used obtains average recall, precision and f1 score of 0.743, 0.741 an
 If the requirement is not just to use the shot boundary detector for inference but to improve the operation via traininga and test for new results the repo https://github.com/oladeha2/gygli_sbd_train_and_test can be visited 
 
 This repo contains python scripts required for local dataset creation, training and testing on the RAI videos whose frame content are already available in the repo
+
+Contatct ameenbello@gmail.com for questions regarding repo content
