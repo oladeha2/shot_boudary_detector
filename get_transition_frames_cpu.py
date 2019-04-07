@@ -45,12 +45,10 @@ for j, frame in enumerate(frames):
 
 print('frame decomposition complete !!! ')
 
-device = 'cuda'
 
 #load model
 model = TransitionCNN()
 model.load_state_dict(torch.load('shot_boundary_detector_even_distrib.pt'))
-model.to(device)
 
 prediction_text_file = 'predictions.txt'
 
@@ -70,8 +68,7 @@ for val in range(length):
     video_indexes.append(vals[s:e])
 
 for indx, batch in enumerate(test_loader):
-        batch.to(device)
-        batch = batch.type('torch.cuda.FloatTensor')
+        batch = batch.type('torch.FloatTensor')
         predictions = model(batch)
         predictions = predictions.argmax(dim=1).cpu().numpy()
         for idx, prediction_set in enumerate(predictions):
