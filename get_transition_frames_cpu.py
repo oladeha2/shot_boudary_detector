@@ -28,7 +28,7 @@ text_file = 'frames.txt'
 
 print('decomposing video to frames this may take a while  for large videos :) .....')
 frames_path = 'video_frames/'
-os.makedirs('video_frames/')
+os.makedirs('video_frames/', exist_ok=True)
 
 vid = VideoFileClip(video)
 vid = six_four_crop_video(vid)
