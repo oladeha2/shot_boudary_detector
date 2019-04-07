@@ -47,7 +47,7 @@ print('frame decomposition complete !!! ')
 
 #load model
 model = TransitionCNN()
-model.load_state_dict(torch.load('shot_boundary_detector_even_distrib.pt'))
+fifty_model.load_state_dict(torch.load('./models/shot_boundary_detector_even_distrib.pt', map_location='cpu'))
 
 prediction_text_file = 'predictions.txt'
 

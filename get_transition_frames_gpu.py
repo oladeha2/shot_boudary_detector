@@ -19,17 +19,20 @@ from PIL import Image
 
 # command line arguments --> file name, video_file_name, gpu or cpu 
 
-print('arg 1', sys.argv[1])
 
 # first decompose the video to frames
 # place the video to be detected into the directory 
 
 video = sys.argv[1]
+pred_text_file_name = sys.argv[2]
+
+
 text_file = 'frames.txt'
 
 print('decomposing video to frames this may take a while  for large videos :) .....')
 frames_path = 'video_frames/'
 os.makedirs('video_frames/', exist_ok=True)
+os.makedirs('predictions/', exist_ok=True)
 
 vid = VideoFileClip(video)
 vid = six_four_crop_video(vid)
@@ -53,7 +56,7 @@ model = TransitionCNN()
 model.load_state_dict(torch.load('shot_boundary_detector_even_distrib.pt'))
 model.to(device)
 
-prediction_text_file = 'predictions.txt'
+prediction_text_file = 'predictions/' + pred_text_file_name 
 
 pred_file = open(prediction_text_file, 'w+')
 
@@ -82,8 +85,10 @@ for indx, batch in enumerate(test_loader):
                     pred_file.write(str(frame_index) + '\n')
 pred_file.close()
 
+# delete files used for process
 os.remove('frames.txt')
-shutil.rmtree('video_frames')
+shutil.rmtree('video_frames/')
+
 print('Predictions complete !!!')
 print('Frames that are part of shot boundaries are listed in file predictions.txt')
 
