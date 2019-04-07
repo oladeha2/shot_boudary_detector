@@ -18,12 +18,11 @@ from PIL import Image
 
 # command line arguments --> file name, video_file_name, gpu or cpu 
 
-print('arg 1', sys.argv[1])
-
 # first decompose the video to frames
 # place the video to be detected into the directory 
 
 video = sys.argv[1]
+# predictions_text_file = sys.argv[2]
 text_file = 'frames.txt'
 
 print('decomposing video to frames this may take a while  for large videos :) .....')
@@ -38,7 +37,7 @@ frames = [frame for frame in vid.iter_frames()]
 f = open(text_file, 'w+')
 
 for j, frame in enumerate(frames):
-        frame_path = frames_path + '/frame_' + str(j+1) + '.png'
+        frame_path = './' +  frames_path + 'frame_' + str(j+1) + '.png'
         im = Image.fromarray(frame)
         im.save(frame_path)            
         f.write(frame_path + '\n')    
