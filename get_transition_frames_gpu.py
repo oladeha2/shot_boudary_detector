@@ -59,7 +59,7 @@ pred_file = open(prediction_text_file, 'w+')
 print('computing predictions for video', video, '...................' )
 
 test_video = TestVideo('frames.txt', sample_size=100, overlap=9)
-test_loader = DataLoader(test_video, batch_size=1, num_workers=3)
+test_loader = DataLoader(test_video, batch_size=1, num_workers=1)
 
 video_indexes = []
 vals = np.arange(test_video.get_line_number())
