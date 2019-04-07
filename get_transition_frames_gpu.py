@@ -90,7 +90,8 @@ os.remove('frames.txt')
 shutil.rmtree('video_frames/')
 
 print('Predictions complete !!!')
-print('Frames that are part of shot boundaries are listed in file predictions.txt')
+print('Frames that are part of shot boundaries are listed in file the directory path predictionns/' + pred_text_file_name)
+
 
 
 
