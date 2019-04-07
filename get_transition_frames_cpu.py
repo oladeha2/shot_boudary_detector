@@ -31,7 +31,7 @@ frames_path = 'video_frames/'
 os.makedirs('video_frames/')
 
 vid = VideoFileClip(video)
-vid = six_four_crop_video(video)
+vid = six_four_crop_video(vid)
 
 frames = [frame for frame in vid.iter_frames()]
 
